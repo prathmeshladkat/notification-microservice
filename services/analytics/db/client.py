@@ -1,7 +1,7 @@
 import os
 from sqlalchemy import create_engine, text
 
-DATABASE_URL = "postgresql://neondb_owner:npg_Rsy5Pa1SFVWZ@ep-bold-shape-a4wwi0gj-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require"
+DATABASE_URL = "postgresql://neondb_owner:npg_Rsy5Pa1SFVWZ@ep-bold-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require"
 
 engine = create_engine(DATABASE_URL)
 
