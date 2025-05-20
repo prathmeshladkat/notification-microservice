@@ -24,6 +24,7 @@ A production-ready, scalable microservice for sending **multi-channel notificati
 - **AWS SES / Twilio / Infobip** – Third-party delivery services
 
 ---
+
 ## ⚙️ Getting Started
 
 ### 1. Start the API Server
@@ -32,19 +33,24 @@ A production-ready, scalable microservice for sending **multi-channel notificati
 cd services/api
 pnpm install
 pnpm run dev
+```
+
 ### 2. Start the Worker Service
 
+```bash
 cd services/worker
 pnpm install
 pnpm run dev
+```
 
 ### 3. Start the Analytics Worker (Python)
 
+```bash
 cd services/analytics
 .\venv\Scripts\Activate.ps1   # Activate your Python virtual environment (Windows)
 celery -A celery_worker worker --loglevel=info --pool=solo
 python analytics_server.py
-
+```
 
 ##Make sure Redis and Kafka are running before starting the services.
 
@@ -54,6 +60,7 @@ URL: http://localhost:4000/send-notification
 
 Sample Request Body
 
+```bash
 {
   "userId": "5520",
   "title": "New sale Offer",
@@ -63,6 +70,7 @@ Sample Request Body
   "emailTo": "prathameshladka@gmail.com",
   "whatsapp": "+91XXXXXXXXX"
 }
+```
 
 🛠️ Future Improvements
 Add retry & dead-letter queue logic for failed notifications
@@ -70,25 +78,3 @@ Add retry & dead-letter queue logic for failed notifications
 Add request validation and rate-limiting
 
 Deploy with Docker + Docker Compose
-
-
-worker -> consumer (kafka consumer config)
-       -> handler (routing request)
-       -> provider (core logic)
-
-npx prisma generate 
-npx prisma migrate dev (current v2)
-
-services/api/src ->  controller (producer to kafka, create user to notification DB)
-                 -> pnpm build
-                 -> pnpm run build
-
-steps to run : redis kafka docker run
-               services/api -> pnpm run dev
-               services/worker -> pnpm run dev
-              services/analytics -> .\venv\Scripts\Activate.ps1c (help you to enter into venv of python project) ->
-                                   celery -A celery_worker worker --loglevel=info --pool=solo
-              services/analytics ->  python analytics_sever.py
-
-
-
