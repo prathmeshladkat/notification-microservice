@@ -78,3 +78,5 @@ Add retry & dead-letter queue logic for failed notifications
 Add request validation and rate-limiting
 
 Deploy with Docker + Docker Compose
+
+🌴 sample env file added in each folder
