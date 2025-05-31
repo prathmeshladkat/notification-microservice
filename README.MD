@@ -25,6 +25,10 @@ A production-ready, scalable microservice for sending **multi-channel notificati
 
 ---
 
+## 🧱 Architecture
+
+![Architecture](./assets/architecture.png)
+
 ## ⚙️ Getting Started
 
 ### 1. Start the API Server
